@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechNova - Contato</title>
+</head>
+<body>
+    <header>
+        <h1>FORMULÁRIO</h1>
+    </header>
+
+    <form action="enviar.html" method="POST">
+        <fiedlset>
+            <legend><strong>INFORMAÇÕES PESSOAIS</strong></legend>
+            <br>
+            <label for="nome">Nome Completo:</label>
+            <input type="text" id="nome" name="nome" required>
+            <br><br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <br><br>
+            <label for="telefone">Telefone:</label>
+            <input type="tel" id="telefone" name="telefone" placeholder="(xx) xxxx-xxxx">
+            <br><br>
+            <label for="mensagem">Mensagem:</label>
+            <textarea id="mensagem" name="mensagem" rows="4" cols="50"></textarea>
+            <br><br>
+            <label for="arquivo">Anexar arquivo:</label>
+            <input type="file" id="arquivo" name="arquivo">
+            <br><br>
+            <label for="contato">Tipo de contato:</label>
+            <select id="contato" name="contato">
+                <option value="contatocomercial">Contato comercial</option>
+                <option value="elogio">Elogio</option>
+                <option value="reclamacao">Reclamação</option>
+            </select>
+        </fiedlset>
+        <br><br>
+        <fieldset>
+            <label for="cliente">Já é cliente?</label>
+            <select id="resposta" name="resposta">
+                <option value="sim">Sim</option>
+                <option value="nao">Não</option>
+            </select>
+        </fieldset>
+        <br>
+        <fieldset>
+            <label for="termos">Termos de Uso:</label>
+            <input type="checkbox" id="termos" required>
+            <label for="termos">Li e aceito os Termos de Uso e a Política de Privacidade.</label>
+        </fieldset>
+        <br>
+        <button type="submit">Enviar Mensagem</button>
+    </form>
+</body>
+</html>

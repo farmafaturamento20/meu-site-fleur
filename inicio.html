@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fleur d'Art - Início</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="produtos.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="topo">
+            <h1 class="logo">Fleur d'Art</h1>
+            
+            <div class="search-box">
+                <input type="text" placeholder="Pesquisar...">
+                <button type="submit">Buscar</button>
+            </div>
+        </div>
+    
+        <nav class="menu">
+            <ul>
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="produtos.html">Produtos</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#trocasedevolucoes">Trocas e devoluções</a></li>
+                <li><a href="#tabelademedidas">Tabela de Medidas</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="banner">
+        <div class="banner-carossel">
+            <div class="slide active">
+                <img src="banner01.jpg" alt="Coleção Fleur d'Art 1">
+            </div>
+
+            <div class="slide">
+                <img src="banner02.jpg" alt="Coleção Fleur d'Art 2">
+            </div>
+
+            <div class="slide">
+                <img src="banner01.jpg" alt="Coleção Fleur d'Art 3">
+            </div>
+        </div>
+
+        <div class="controles">
+            <button class="btn-nav" id="btnAnterior" aria-label="Slide anterior">&#10094;</button>
+            <button class="btn-nav" id="btnProximo" aria-label="Próximo slide">&#10095;</button>
+        </div>
+
+        <div class="carousel-dots" aria-label="Escolha o slide">
+            <button class="dot active" data-index="0" aria-label="Slide 1"></button>
+            <button class="dot" data-index="1" aria-label="Slide 2"></button>
+            <button class="dot" data-index="2" aria-label="Slide 3"></button>
+        </div>
+    </div>
+
+    <div class="container">
+        <main>
+            <h2 id="inicio">Destaques</h2>
+
+            <section class="destaques-grid">
+                <article class="card-produto" data-categoria="partedecima" data-destaque="true">
+                    <img src="conjunto-lary.webp" alt="Conjunto Lary">
+                    <div class="card-body">
+                        <span class="tag-categoria">Peças em destaque</span>
+                        <h3>Conjunto Lary</h3>
+                        <div class="preco">R$ 129,90</div>
+                        <button class="btn-adicionar" onclick="adicionarAoCarrinho('Conjunto Lary', 129.90)">Adicionar ao Carrinho</button>
+                    </div>
+                </article>
+
+                <article class="card-produto" data-categoria="vestidos" data-destaque="true">
+                    <img src="vestido-mirela.webp" alt="Vestido Mirela">
+                    <div class="card-body">
+                        <span class="tag-categoria">Nova coleção</span>
+                        <h3>Vestido Mirela</h3>
+                        <div class="preco">R$ 149,90</div>
+                        <button class="btn-adicionar" onclick="adicionarAoCarrinho('Vestido Mirela', 149.90)">Adicionar ao Carrinho</button>
+                    </div>
+                </article>
+
+                <article class="card-produto" data-categoria="partedecima" data-destaque="true">
+                    <img src="tube-top.webp" alt="Tube Top">
+                    <div class="card-body">
+                        <span class="tag-categoria">Parte de cima</span>
+                        <h3>Tube Top</h3>
+                        <div class="preco">R$ 49,90</div>
+                        <button class="btn-adicionar" onclick="adicionarAoCarrinho('Tube Top', 49.90)">Adicionar ao Carrinho</button>
+                    </div>
+                </article>
+
+                <article class="card-produto" data-categoria="partedebaixo" data-destaque="true">
+                    <img src="calca_wide_leg.webp" alt="Calça Jeans">
+                    <div class="card-body">
+                        <span class="tag-categoria">Parte de baixo</span>
+                        <h3>Calça Jeans</h3>
+                        <div class="preco">R$ 129,90</div>
+                        <button class="btn-adicionar" onclick="adicionarAoCarrinho('Calça Jeans', 129.90)">Adicionar ao Carrinho</button>
+                    </div>
+                </article>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const slides = Array.from(document.querySelectorAll('.slide'));
+            const dots = Array.from(document.querySelectorAll('.dot'));
+            const nextButton = document.getElementById('btnProximo');
+            const prevButton = document.getElementById('btnAnterior');
+            let activeIndex = 0;
+
+            function showSlide(index) {
+                activeIndex = (index + slides.length) % slides.length;
+
+                slides.forEach((slide, i) => {
+                    slide.classList.toggle('active', i === activeIndex);
+                });
+
+                dots.forEach((dot, i) => {
+                    dot.classList.toggle('active', i === activeIndex);
+                });
+            }
+
+            nextButton?.addEventListener('click', function () {
+                showSlide(activeIndex + 1);
+            });
+
+            prevButton?.addEventListener('click', function () {
+                showSlide(activeIndex - 1);
+            });
+
+            dots.forEach((dot) => {
+                dot.addEventListener('click', function () {
+                    showSlide(Number(dot.dataset.index));
+                });
+            });
+
+            setInterval(function () {
+                showSlide(activeIndex + 1);
+            }, 5000);
+        });
+    </script>
+
+    <footer>
+        <h3 id="redessociais">Redes Sociais</h3>
+        <a href="https://www.instagram.com" target="_blank">Instagram</a>
+        <br>
+        <a href="https://www.LinkedIn.com" target="_blank">LinkedIn</a>
+        <br>
+        <a href="https://www.facebook.com" target="_blank">Facebook</a>
+
+        <p>&copy; 2026 Fleur d'Art - Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>
