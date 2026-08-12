@@ -5,7 +5,7 @@
 /* --- RESET E BASES --- */
 * {
   margin: 0;
-  padding: 0;
+  padding: 30px;
   box-sizing: border-box;
   font-family: 'Montserrat', sans-serif;
 }
@@ -36,8 +36,9 @@ header {
 .topo {
   display: flex;
   align-items: center;
-  padding: 15px 5%;
-  gap: 20px;
+  justify-content: space-between;
+  padding: 30px 5%;
+  gap: 30px;
 }
 
 .topo .logo {
@@ -45,6 +46,9 @@ header {
   font-size: 1.8rem;
   font-family: 'Playfair Display', serif;
   font-weight: 600;
+  margin: 0;
+  white-space: nowrap;
+  padding: 30px;
 }
 
 /* --- CAIXA DE PESQUISA --- */
@@ -229,6 +233,14 @@ mark {
   color: rgb(143, 2, 5);
   padding: 2px 5px;
   border-radius: 3px;
+}
+
+.user-content {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 
