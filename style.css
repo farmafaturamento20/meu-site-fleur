@@ -1,9 +1,13 @@
+/* --- FONTES --- */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+
 /* --- RESET E BASES --- */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 body {
@@ -12,7 +16,18 @@ body {
   line-height: 1.6;
 }
 
+
+/* --- TÍTULOS --- */
+
+h1,
+h2,
+h3 {
+  font-family: 'Playfair Display', serif;
+}
+
+
 /* --- CABEÇALHO / TOPO --- */
+
 header {
   background-color: rgb(143, 2, 5);
   box-shadow: 0 2px 5px rgba(0,0,0,0.2);
@@ -20,7 +35,6 @@ header {
 
 .topo {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   padding: 15px 5%;
   gap: 20px;
@@ -29,77 +43,20 @@ header {
 .topo .logo {
   color: #ffffff;
   font-size: 1.8rem;
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
 }
 
-.header-actions {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  margin-left: auto;
-}
-
-.utilities-container {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 18px;
-}
+/* --- CAIXA DE PESQUISA --- */
 
 .utilities-item {
-  position: relative;
+  justify-content: flex-end;
 }
 
-.utility-head {
-  color: #ffffff;
-  font-size: 0.9rem;
-  cursor: pointer;
-  white-space: nowrap;
-}
-
-.utility-menu {
-  position: absolute;
-  top: calc(100% + 10px);
-  right: 0;
-  min-width: 190px;
-  background: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 10px 24px rgba(0,0,0,0.15);
-  list-style: none;
-  padding: 10px 0;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(8px);
-  transition: all 0.2s ease;
-  z-index: 20;
-}
-
-.utilities-dropdown:hover .utility-menu,
-.utilities-dropdown:focus-within .utility-menu {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
-
-.utility-menu li {
-  padding: 0;
-}
-
-.utility-menu a {
-  display: block;
-  padding: 8px 14px;
-  color: #333;
-  text-decoration: none;
-  font-size: 0.9rem;
-}
-
-.utility-menu a:hover {
-  background: #f5f5f5;
-}
-
-/* Caixa de Pesquisa */
 .search-box {
   display: flex;
   gap: 5px;
+  justify-content: flex-end;
 }
 
 .search-box input {
@@ -110,7 +67,7 @@ header {
 }
 
 .search-box button {
-  padding: 8px 15px;
+  padding: 4px 11px;
   background-color: #333333;
   color: #ffffff;
   border: none;
@@ -123,7 +80,9 @@ header {
   background-color: #555555;
 }
 
-/* Menu de Navegação */
+
+/* --- MENU DE NAVEGAÇÃO --- */
+
 .menu {
   background-color: rgba(0, 0, 0, 0.15);
 }
@@ -150,14 +109,18 @@ header {
   background-color: rgba(255, 255, 255, 0.2);
 }
 
+
 /* --- LAYOUT PRINCIPAL --- */
+
 .container {
   max-width: 1100px;
   margin: 20px auto;
   padding: 0 20px;
 }
 
-/* Banner da Página Inicial */
+
+/* --- BANNER DA PÁGINA INICIAL --- */
+
 .banner {
   position: relative;
   width: 100%;
@@ -189,7 +152,7 @@ header {
 .slide img {
   width: 100%;
   height: 100%;
-    min-height: 220px;
+  min-height: 220px;
 }
 
 .carousel-dots {
@@ -221,7 +184,9 @@ header {
   }
 }
 
-/* Botões do Carrossel (< e >) */
+
+/* --- BOTÕES DO CARROSSEL (< E >) --- */
+
 .controles .btn-nav {
   position: absolute;
   top: 50%;
@@ -248,7 +213,9 @@ header {
   right: 10px;
 }
 
+
 /* --- CONTEÚDO DA PÁGINA --- */
+
 #inicio {
   text-align: center;
   font-size: 1.8rem;
@@ -264,7 +231,9 @@ mark {
   border-radius: 3px;
 }
 
+
 /* --- LAYOUT DA LOJA --- */
+
 .loja-layout {
   display: grid;
   grid-template-columns: 1fr;
@@ -272,7 +241,9 @@ mark {
   margin-top: 20px;
 }
 
+
 /* --- FILTROS DE CATEGORIA --- */
+
 .filtros-categoria {
   display: flex;
   gap: 10px;
@@ -297,7 +268,9 @@ mark {
   color: #ffffff;
 }
 
+
 /* --- GRID E CARDS DE PRODUTOS --- */
+
 .grid-produtos {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -397,7 +370,9 @@ mark {
   background-color: #660103;
 }
 
+
 /* --- DESTAQUES --- */
+
 .destaques-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -409,19 +384,9 @@ mark {
   height: 100%;
 }
 
-/* --- DESTAQUES --- */
-.destaques-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
-  margin-top: 20px;
-}
-
-.destaques-grid .card-produto {
-  height: 100%;
-}
 
 /* --- CARRINHO FLUTUANTE --- */
+
 .btn-carrinho-flutuante {
   position: relative;
   background: transparent;
@@ -554,7 +519,9 @@ mark {
   background-color: #1ebc57;
 }
 
+
 /* --- RODAPÉ --- */
+
 footer {
   background-color: rgba(143, 2, 5, 0.9);
   color: #ffffff;

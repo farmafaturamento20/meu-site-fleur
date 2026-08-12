@@ -3,15 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TechNova - Contato</title>
+    <title>Fleur d'Art</title>
+    <link rel="stylesheet" href="contatostyle.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
         <h1>FORMULÁRIO</h1>
+        <div class="header-actions">
+            <div class="utilities-container">
+                <div class="utilities-item utilities-dropdown">
+                    <div class="utility-head">
+                        <span>Fale Conosco</span>
+                    </div>
+                    <ul class="utility-menu">
+                        <li><a href="https://wa.me/5521999999999" target="_blank">WhatsApp</a></li>
+                        <li><a href="mailto:fleurdart@gmail.com">Email</a></li>
+                    </ul>
+                </div>
     </header>
 
     <form action="enviar.html" method="POST">
-        <fiedlset>
+        <fieldset>
             <legend><strong>INFORMAÇÕES PESSOAIS</strong></legend>
             <br>
             <label for="nome">Nome Completo:</label>
@@ -35,11 +48,11 @@
                 <option value="elogio">Elogio</option>
                 <option value="reclamacao">Reclamação</option>
             </select>
-        </fiedlset>
+        </fieldset>
         <br><br>
         <fieldset>
             <label for="cliente">Já é cliente?</label>
-            <select id="resposta" name="resposta">
+            <select for="resposta" name="resposta">
                 <option value="sim">Sim</option>
                 <option value="nao">Não</option>
             </select>

@@ -1,0 +1,142 @@
+/* ===== CONFIGURAÇÕES GERAIS ===== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+
+/* ===== CABEÇALHO ===== */
+
+header {
+    background-color: rgba(143, 2, 5, 0.9);
+    color: white;
+    text-align: center;
+    padding: 30px;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    font-size: 32px;
+    letter-spacing: 2px;
+}
+
+.header-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+}
+
+
+/* ===== FORMULÁRIO ===== */
+
+form {
+    width: 90%;
+    max-width: 800px;
+    margin: 0 auto 40px;
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+
+/* ===== FIELDSET ===== */
+
+fieldset {
+    border: 2px solid rgba(143, 2, 5, 0.9);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+legend {
+    color: rgba(143, 2, 5, 0.9);
+    font-size: 18px;
+    font-weight: bold;
+    padding: 0 10px;
+}
+
+
+/* ===== LABELS ===== */
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+
+/* ===== CAMPOS ===== */
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="file"],
+textarea,
+select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 18px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 15px;
+    font-family: Arial, sans-serif;
+}
+
+
+/* ===== EFEITO AO CLICAR NO CAMPO ===== */
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: rgba(143, 2, 5, 0.9);
+    box-shadow: 0 0 5px rgba(143, 2, 5, 0.3);
+}
+
+
+/* ===== TEXTAREA ===== */
+
+textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+
+/* ===== CHECKBOX ===== */
+
+input[type="checkbox"] {
+    accent-color: rgba(143, 2, 5, 0.9);
+    margin-right: 8px;
+}
+
+
+/* ===== BOTÃO ===== */
+
+button {
+    display: block;
+    margin: 10px auto 0;
+    padding: 13px 30px;
+    background-color: rgba(143, 2, 5, 0.9);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: rgb(110, 0, 3);
+    transform: translateY(-2px);
+}
