@@ -12,19 +12,64 @@
     <header>
         
         <div class="topo">
-            <h1 class="logo">Fleur d'Art</h1>
 
-                    <div class="utilities-item cart-utility">
-                        <button type="button" class="btn-carrinho-flutuante" id="btnCarrinhoFlutuante" aria-label="Abrir carrinho">
-                            <span class="cart-icon">🛒</span>
-                            <span class="cart-label">Meu carrinho</span>
-                            <span id="badgeCarrinho" class="badge-carrinho">0</span>
-                        </button>
-                    </div>
-                    <div class="search-box">
-                        <input type="text" id="inputBuscaProdutos" placeholder="Buscar produtos...">
-                        <button type="button" id="btnBuscarProdutos">Buscar</button>
-                    </div>
+            <!-- NOME DA LOJA -->
+            <h1 class="logo">
+                <img src="icone.png" alt="Emblema Fleur d'Art">
+                Fleur d'Art
+            </h1>
+        
+            <!-- ELEMENTOS DO LADO DIREITO -->
+            <div class="header-actions">
+        
+                <!-- CARRINHO -->
+                <div class="utilities-item cart-utility">
+        
+                    <button
+                        type="button"
+                        class="btn-carrinho-flutuante"
+                        id="btnCarrinhoFlutuante"
+                        aria-label="Abrir carrinho"
+                    >
+        
+                        <span class="cart-icon">🛒</span>
+        
+                        <span class="cart-label">
+                            Meu carrinho
+                        </span>
+        
+                        <span
+                            id="badgeCarrinho"
+                            class="badge-carrinho"
+                        >
+                            0
+                        </span>
+        
+                    </button>
+        
+                </div>
+        
+        
+                <!-- BARRA DE PESQUISA -->
+                <div class="search-box">
+        
+                    <input
+                        type="text"
+                        id="inputBuscaProdutos"
+                        placeholder="Buscar produtos..."
+                    >
+        
+                    <button
+                        type="button"
+                        id="btnBuscarProdutos"
+                    >
+                        Buscar
+                    </button>
+        
+                </div>
+        
+            </div>
+        
         </div>
     
         <nav class="menu">
@@ -112,6 +157,25 @@
                     </div>
                 </article>
             </section>
+
+            <aside id="carrinhoFlutuante" class="carrinho-box carrinho-flutuante">
+                <div class="carrinho-header">
+                    <h3>Seu Carrinho 🛒</h3>
+                    <button type="button" class="btn-fechar-carrinho" id="btnFecharCarrinho" aria-label="Fechar carrinho">×</button>
+                </div>
+
+                <ul id="listaCarrinho" class="lista-carrinho">
+                    <li class="carrinho-vazio">Seu carrinho está vazio.</li>
+                </ul>
+                
+                <div class="carrinho-total">
+                    <strong>Total:</strong> <span id="totalCarrinho">R$ 0,00</span>
+                </div>
+
+                <button class="btn-whatsapp" onclick="enviarWhatsApp()">
+                    Finalizar Compra via WhatsApp
+                </button>
+            </aside>
         </main>
     </div>
 

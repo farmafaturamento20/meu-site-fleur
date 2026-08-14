@@ -5,7 +5,7 @@
 /* --- RESET E BASES --- */
 * {
   margin: 0;
-  padding: 30px;
+  padding: 0;
   box-sizing: border-box;
   font-family: 'Montserrat', sans-serif;
 }
@@ -41,17 +41,36 @@ header {
   gap: 30px;
 }
 
+.logo img {
+  width: 45px;
+  height: 45px;
+  object-fit: contain;
+}
+
 .topo .logo {
   color: #ffffff;
-  font-size: 1.8rem;
   font-family: 'Playfair Display', serif;
+  font-size: 3rem;
   font-weight: 600;
   margin: 0;
   white-space: nowrap;
-  padding: 30px;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-left: auto;
 }
 
 /* --- CAIXA DE PESQUISA --- */
+
+.utilities-container {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 30px;
+}
 
 .utilities-item {
   justify-content: flex-end;
@@ -131,8 +150,6 @@ header {
   max-width: 100%;
   overflow: hidden;
   border-radius: 0;
-  margin-bottom: 25px;
-  background-color: #000000;
 }
 
 .banner-carossel {
@@ -159,7 +176,7 @@ header {
   min-height: 220px;
 }
 
-.carousel-dots {
+.carossel-dots {
   position: absolute;
   bottom: 16px;
   left: 50%;
@@ -222,7 +239,7 @@ header {
 
 #inicio {
   text-align: center;
-  font-size: 1.8rem;
+  font-size: 2rem;
   margin-bottom: 30px;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -235,9 +252,9 @@ mark {
   border-radius: 3px;
 }
 
-.user-content {
+h4 h2{
   text-align: center;
-  font-size: 1.8rem;
+  font-size: 2rem;
   margin-bottom: 30px;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -400,7 +417,6 @@ mark {
 /* --- CARRINHO FLUTUANTE --- */
 
 .btn-carrinho-flutuante {
-  position: relative;
   background: transparent;
   color: #ffffff;
   border: none;

@@ -10,27 +10,67 @@
 <body>
     <header>
         <div class="topo">
+
+            <!-- NOME DA LOJA -->
             <h1 class="logo">Fleur d'Art</h1>
-
-                    <div class="utilities-item cart-utility">
-                        <button type="button" class="btn-carrinho-flutuante" id="btnCarrinhoFlutuante" aria-label="Abrir carrinho">
-                            <span class="cart-icon">🛒</span>
-                            <span class="cart-label">Meu carrinho</span>
-                            <span id="badgeCarrinho" class="badge-carrinho">0</span>
-                        </button>
-                    </div>
-
-                <div class="search-box">
-                    <input type="text" id="inputBuscaProdutos" placeholder="Buscar produtos...">
-                    <button type="button" id="btnBuscarProdutos">Buscar</button>
+        
+            <!-- ELEMENTOS DO LADO DIREITO -->
+            <div class="header-actions">
+        
+                <!-- CARRINHO -->
+                <div class="utilities-item cart-utility">
+        
+                    <button
+                        type="button"
+                        class="btn-carrinho-flutuante"
+                        id="btnCarrinhoFlutuante"
+                        aria-label="Abrir carrinho"
+                    >
+        
+                        <span class="cart-icon">🛒</span>
+        
+                        <span class="cart-label">
+                            Meu carrinho
+                        </span>
+        
+                        <span
+                            id="badgeCarrinho"
+                            class="badge-carrinho"
+                        >
+                            0
+                        </span>
+        
+                    </button>
+        
                 </div>
+        
+        
+                <!-- BARRA DE PESQUISA -->
+                <div class="search-box">
+        
+                    <input
+                        type="text"
+                        id="inputBuscaProdutos"
+                        placeholder="Buscar produtos..."
+                    >
+        
+                    <button
+                        type="button"
+                        id="btnBuscarProdutos"
+                    >
+                        Buscar
+                    </button>
+        
+                </div>
+        
+            </div>
+        
         </div>
-    
         <nav class="menu">
             <ul>
                 <li><a href="inicio.html">Início</a></li>
+                <li><a href="sobre.html">Quem somos</a></li>
                 <li><a href="produtos.html">Produtos</a></li>
-                <li><a href="servicos.html">Serviços</a></li>
                 <li><a href="trocasedevolucoes.html">Trocas e devoluções</a></li>
                 <li><a href="tabelademedidas.html">Tabela de Medidas</a></li>
                 <li><a href="contato.html">Contato</a></li>
