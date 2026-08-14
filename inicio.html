@@ -6,7 +6,6 @@
     <link rel="icon" href="icon.png" type="image/png">
     <title> Início | Fleur d'Art </title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="produtos.css">
     <script src="script.js" defer></script>
 </head>
 <body>
@@ -97,7 +96,9 @@
             </div>
 
             <div class="slide">
-                <img src="banner01.jpg" alt="Coleção Fleur d'Art 3">
+                <video class="slide-video" autoplay muted playsinline preload="auto" aria-label="Vídeo promocional da loja">
+                    <source src="videobanner.mp4" type="video/mp4">
+                </video>
             </div>
         </div>
 
@@ -110,6 +111,7 @@
             <button class="dot active" data-index="0" aria-label="Slide 1"></button>
             <button class="dot" data-index="1" aria-label="Slide 2"></button>
             <button class="dot" data-index="2" aria-label="Slide 3"></button>
+            <button class="dot" data-index="3" aria-label="Slide 4"></button>
         </div>
     </div>
 
@@ -167,6 +169,15 @@
                         <button class="btn-adicionar" onclick="adicionarAoCarrinho('Vestido Alice', 89.90)">Adicionar ao Carrinho</button>
                     </div>
                 </article>
+                  <article class="card-produto" data-categoria="partedecima" data-destaque="true">
+                    <img src="blusa-manga-curta.jpg" alt="Blusa Manga Curta">
+                    <div class="card-body">
+                        <span class="tag-categoria"> Peças em destaque </span>
+                        <h3>Blusa Manga Curta </h3>
+                        <div class="preco">R$ 59,90</div>
+                        <button class="btn-adicionar" onclick="adicionarAoCarrinho('Blusa Manga Curta', 59.90)">Adicionar ao Carrinho</button>
+                    </div>
+                </article>
 
             </section>
 
@@ -191,55 +202,15 @@
         </main>
     </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const slides = Array.from(document.querySelectorAll('.slide'));
-            const dots = Array.from(document.querySelectorAll('.dot'));
-            const nextButton = document.getElementById('btnProximo');
-            const prevButton = document.getElementById('btnAnterior');
-            let activeIndex = 0;
-
-            function showSlide(index) {
-                activeIndex = (index + slides.length) % slides.length;
-
-                slides.forEach((slide, i) => {
-                    slide.classList.toggle('active', i === activeIndex);
-                });
-
-                dots.forEach((dot, i) => {
-                    dot.classList.toggle('active', i === activeIndex);
-                });
-            }
-
-            nextButton?.addEventListener('click', function () {
-                showSlide(activeIndex + 1);
-            });
-
-            prevButton?.addEventListener('click', function () {
-                showSlide(activeIndex - 1);
-            });
-
-            dots.forEach((dot) => {
-                dot.addEventListener('click', function () {
-                    showSlide(Number(dot.dataset.index));
-                });
-            });
-
-            setInterval(function () {
-                showSlide(activeIndex + 1);
-            }, 5000);
-        });
-    </script>
+    <script src="script.js"></script>
 
     <footer>
-        <h3 id="redessociais">Redes Sociais</h3>
-        <a href="https://www.instagram.com" target="_blank">Instagram</a>
-        <br>
-        <a href="https://www.LinkedIn.com" target="_blank">LinkedIn</a>
-        <br>
-        <a href="https://www.facebook.com" target="_blank">Facebook</a>
+     <h3 id="redessociais">Redes Sociais</h3>
+        <a href="https://www.instagram.com" target="_blank">Instagram</a> |
+        <a href="https://www.tiktok.com" target="_blank">TikTok</a>
 
         <p>&copy; 2026 Fleur d'Art - Todos os direitos reservados.</p>
     </footer>
+
 </body>
 </html>

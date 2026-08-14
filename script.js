@@ -134,3 +134,152 @@ document.addEventListener('DOMContentLoaded', function () {
   renderCarrinho();
   atualizarFiltro();
 });
+
+ document.addEventListener('DOMContentLoaded', function () {
+            const slides = Array.from(document.querySelectorAll('.slide'));
+            const dots = Array.from(document.querySelectorAll('.dot'));
+            const nextButton = document.getElementById('btnProximo');
+            const prevButton = document.getElementById('btnAnterior');
+            let activeIndex = 0;
+            let autoAdvanceTimer = null;
+
+            function stopAutoAdvance() {
+                if (autoAdvanceTimer) {
+                    clearInterval(autoAdvanceTimer);
+                    autoAdvanceTimer = null;
+                }
+            }
+
+            function restartAutoAdvance() {
+                stopAutoAdvance();
+
+                const activeSlide = slides[activeIndex];
+                const activeVideo = activeSlide?.querySelector('video');
+
+                if (activeVideo) {
+                    activeVideo.currentTime = 0;
+                    activeVideo.play();
+
+                    activeVideo.onended = function () {
+                        showSlide(activeIndex + 1);
+                    };
+                    return;
+                }
+
+                autoAdvanceTimer = setInterval(function () {
+                    showSlide(activeIndex + 1);
+                }, 5000);
+            }
+
+            function showSlide(index) {
+                activeIndex = (index + slides.length) % slides.length;
+
+                slides.forEach((slide, i) => {
+                    const video = slide.querySelector('video');
+                    if (video) {
+                        video.pause();
+                        video.currentTime = 0;
+                        video.onended = null;
+                    }
+                    slide.classList.toggle('active', i === activeIndex);
+                });
+
+                dots.forEach((dot, i) => {
+                    dot.classList.toggle('active', i === activeIndex);
+                });
+
+                restartAutoAdvance();
+            }
+
+            nextButton?.addEventListener('click', function () {
+                stopAutoAdvance();
+                showSlide(activeIndex + 1);
+            });
+
+            prevButton?.addEventListener('click', function () {
+                stopAutoAdvance();
+                showSlide(activeIndex - 1);
+            });
+
+            dots.forEach((dot) => {
+                dot.addEventListener('click', function () {
+                    stopAutoAdvance();
+                    showSlide(Number(dot.dataset.index));
+                });
+            });
+
+            showSlide(0);
+        });
+        const dropdown = document.querySelector('.utilities-dropdown');
+        const trigger = document.querySelector('.utility-head');
+
+        if (dropdown && trigger) {
+            const toggleMenu = (forceOpen) => {
+                const shouldOpen = typeof forceOpen === 'boolean' ? forceOpen : !dropdown.classList.contains('open');
+                dropdown.classList.toggle('open', shouldOpen);
+                trigger.setAttribute('aria-expanded', String(shouldOpen));
+            };
+
+            trigger.addEventListener('click', (event) => {
+                event.stopPropagation();
+                toggleMenu();
+            });
+
+            trigger.addEventListener('keydown', (event) => {
+                if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    toggleMenu();
+                }
+            });
+
+            document.addEventListener('click', () => toggleMenu(false));
+        }
+
+        const selectCliente = document.getElementById('cliente');
+        const campoCpfCliente = document.getElementById('campoCpfCliente');
+
+        if (selectCliente && campoCpfCliente) {
+            const toggleCpfCliente = () => {
+                const isCliente = selectCliente.value === 'sim';
+                campoCpfCliente.style.display = isCliente ? 'block' : 'none';
+                const cpfInput = document.getElementById('cpfCliente');
+                if (!isCliente && cpfInput) {
+                    cpfInput.value = '';
+                }
+            };
+
+            selectCliente.addEventListener('change', toggleCpfCliente);
+            toggleCpfCliente();
+        }
+
+        const linkTermos = document.querySelector('.link-termos');
+        const modalTermos = document.getElementById('modalTermos');
+        const modalClose = document.querySelector('.modal-close');
+
+        if (linkTermos && modalTermos && modalClose) {
+            const abrirModal = (event) => {
+                event.preventDefault();
+                modalTermos.classList.add('show');
+                modalTermos.setAttribute('aria-hidden', 'false');
+            };
+
+            const fecharModal = () => {
+                modalTermos.classList.remove('show');
+                modalTermos.setAttribute('aria-hidden', 'true');
+            };
+
+            linkTermos.addEventListener('click', abrirModal);
+            modalClose.addEventListener('click', fecharModal);
+
+            modalTermos.addEventListener('click', (event) => {
+                if (event.target === modalTermos) {
+                    fecharModal();
+                }
+            });
+
+            document.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape' && modalTermos.classList.contains('show')) {
+                    fecharModal();
+                }
+            });
+        }
