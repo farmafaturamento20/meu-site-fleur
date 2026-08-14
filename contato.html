@@ -3,17 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fleur d'Art</title>
+     <link rel="icon" href="icon.png" type="image/png">
+    <title> Contato | Fleur d'Art </title>
     <link rel="stylesheet" href="contatostyle.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <a href="inicio.html" class="btn-voltar-inicio" aria-label="Voltar para a página inicial">← Voltar</a>
+
     <header>
         <h1>FORMULÁRIO</h1>
         <div class="header-actions">
             <div class="utilities-container">
                 <div class="utilities-item utilities-dropdown">
-                    <div class="utility-head">
+                    <div class="utility-head" tabindex="0" aria-expanded="false">
                         <span>Fale Conosco</span>
                     </div>
                     <ul class="utility-menu">
@@ -21,6 +24,8 @@
                         <li><a href="mailto:fleurdart@gmail.com">Email</a></li>
                     </ul>
                 </div>
+            </div>
+        </div>
     </header>
 
     <form action="enviar.html" method="POST">
@@ -51,20 +56,84 @@
         <br>
         <fieldset>
             <label for="cliente">Já é cliente?</label>
-            <select for="resposta" name="resposta">
-                <option value="sim">Sim</option>
+            <select id="cliente" name="resposta">
                 <option value="nao">Não</option>
+                <option value="sim">Sim</option>
             </select>
+
+            <div id="campoCpfCliente" style="display: none;">
+                <label for="cpfCliente">CPF:</label>
+                <input type="text" id="cpfCliente" name="cpfCliente" placeholder="Digite seu CPF">
+            </div>
         </fieldset>
         <br>
         <fieldset>
-            <label for="termos">Termos de Uso:</label>
-            <input type="checkbox" id="termos" required>
-            <label for="termos">Li e aceito os Termos de Uso e a Política de Privacidade.</label>
+            <div class="termos-wrapper">
+                <label for="termos" class="termos-label">
+                    <input type="checkbox" id="termos" required>
+                    <span>Li e aceito os <a href="#" class="link-termos" data-modal="modalTermos">Termos de Uso e Política de Privacidade</a>.</span>
+                </label>
+            </div>
         </fieldset>
         <br>
         <button type="submit">Enviar Mensagem</button>
     </form>
+
+    <div id="modalTermos" class="modal" aria-hidden="true">
+        <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="tituloModalTermos">
+            <button type="button" class="modal-close" aria-label="Fechar">×</button>
+            <h3 id="tituloModalTermos">Termos de Uso e Política de Privacidade</h3>
+            <div class="modal-body">
+                
+                <p>A sua privacidade e a segurança das suas informações são muito importantes para nós. Este documento explica, de forma clara e transparente, como funciona a utilização da nossa loja, quais são as condições de compra e como seus dados pessoais são coletados, utilizados e protegidos.</p>
+
+                <h4>1. Termos de Uso</h4>
+                <p>Ao acessar e utilizar nossa loja, você declara estar de acordo com estes Termos de Uso. Recomendamos que leia atentamente todas as informações antes de realizar uma compra.</p>
+                <p>Nossa loja disponibiliza produtos de moda feminina, sujeitos à disponibilidade de estoque, condições, preços e informações apresentadas no momento da compra.</p>
+                <p>Os preços, formas de pagamento, condições de entrega e demais informações dos produtos poderão ser alterados a qualquer momento, sem aviso prévio, respeitando-se as compras já realizadas.</p>
+
+                <h4>2. Compras e Pagamentos</h4>
+                <p>Ao realizar uma compra, a cliente se compromete a fornecer informações verdadeiras, completas e atualizadas.</p>
+                <p>O pedido estará sujeito à confirmação do pagamento e à disponibilidade dos produtos. Após a confirmação, serão fornecidas as informações referentes ao processamento e envio do pedido.</p>
+
+                <h4>3. Trocas e Devoluções</h4>
+                <p>As condições para trocas, devoluções e cancelamentos seguem a legislação aplicável e as regras disponibilizadas pela loja.</p>
+                <p>Em caso de dúvidas ou necessidade de atendimento, entre em contato conosco pelos canais oficiais da loja.</p>
+
+                <h4>4. Política de Privacidade</h4>
+                <p>Respeitamos a sua privacidade e buscamos proteger os dados pessoais fornecidos durante sua navegação e utilização da nossa loja.</p>
+                <p>Podemos coletar informações necessárias para realizar o cadastro, processar pedidos, efetuar pagamentos, realizar entregas, prestar atendimento e melhorar a experiência de compra.</p>
+                <p>Os dados pessoais serão tratados de acordo com a legislação aplicável, especialmente a <strong>Lei Geral de Proteção de Dados Pessoais (LGPD)</strong>.</p>
+
+                <h4>5. Uso dos Dados Pessoais</h4>
+                <p>As informações fornecidas poderão ser utilizadas para:</p>
+                <ul>
+                    <li>Processar e acompanhar pedidos;</li>
+                    <li>Realizar pagamentos e entregas;</li>
+                    <li>Entrar em contato sobre compras e atendimentos;</li>
+                    <li>Fornecer suporte à cliente;</li>
+                    <li>Melhorar nossos produtos e serviços;</li>
+                    <li>Enviar comunicações, novidades e ofertas, quando autorizado.</li>
+                </ul>
+                <p>Não comercializamos dados pessoais das nossas clientes.</p>
+
+                <h4>6. Segurança</h4>
+                <p>Adotamos medidas de segurança para proteger as informações pessoais contra acessos não autorizados, perda, alteração ou divulgação indevida.</p>
+                <p>Apesar dos nossos esforços, nenhum sistema eletrônico é completamente seguro. Por isso, recomendamos que a cliente também mantenha seus dados de acesso protegidos e não os compartilhe com terceiros.</p>
+
+                <h4>7. Cookies</h4>
+                <p>Nossa loja poderá utilizar cookies e tecnologias semelhantes para melhorar a navegação, entender como o site é utilizado e oferecer uma experiência mais personalizada.</p>
+                <p>A cliente poderá gerenciar as preferências de cookies por meio das configurações disponíveis no navegador ou na própria loja, quando aplicável.</p>
+
+                <h4>8. Alterações</h4>
+                <p>Estes Termos de Uso e esta Política de Privacidade poderão ser atualizados sempre que necessário para refletir mudanças em nossos serviços, processos ou na legislação aplicável.</p>
+                <p>Recomendamos consultar esta página periodicamente.</p>
+
+                <h4>9. Contato</h4>
+                <p>Caso tenha qualquer dúvida sobre nossos Termos de Uso, Política de Privacidade ou sobre o tratamento dos seus dados pessoais, entre em contato conosco pelos canais oficiais disponibilizados em nossa loja.</p>
+            </div>
+        </div>
+    </div>
 
     <footer>
         <h3 id="redessociais">Redes Sociais</h3>
@@ -76,5 +145,81 @@
 
         <p>&copy; 2026 Fleur d'Art - Todos os direitos reservados.</p>
     </footer>
+
+    <script>
+        const dropdown = document.querySelector('.utilities-dropdown');
+        const trigger = document.querySelector('.utility-head');
+
+        if (dropdown && trigger) {
+            const toggleMenu = (forceOpen) => {
+                const shouldOpen = typeof forceOpen === 'boolean' ? forceOpen : !dropdown.classList.contains('open');
+                dropdown.classList.toggle('open', shouldOpen);
+                trigger.setAttribute('aria-expanded', String(shouldOpen));
+            };
+
+            trigger.addEventListener('click', (event) => {
+                event.stopPropagation();
+                toggleMenu();
+            });
+
+            trigger.addEventListener('keydown', (event) => {
+                if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    toggleMenu();
+                }
+            });
+
+            document.addEventListener('click', () => toggleMenu(false));
+        }
+
+        const selectCliente = document.getElementById('cliente');
+        const campoCpfCliente = document.getElementById('campoCpfCliente');
+
+        if (selectCliente && campoCpfCliente) {
+            const toggleCpfCliente = () => {
+                const isCliente = selectCliente.value === 'sim';
+                campoCpfCliente.style.display = isCliente ? 'block' : 'none';
+                const cpfInput = document.getElementById('cpfCliente');
+                if (!isCliente && cpfInput) {
+                    cpfInput.value = '';
+                }
+            };
+
+            selectCliente.addEventListener('change', toggleCpfCliente);
+            toggleCpfCliente();
+        }
+
+        const linkTermos = document.querySelector('.link-termos');
+        const modalTermos = document.getElementById('modalTermos');
+        const modalClose = document.querySelector('.modal-close');
+
+        if (linkTermos && modalTermos && modalClose) {
+            const abrirModal = (event) => {
+                event.preventDefault();
+                modalTermos.classList.add('show');
+                modalTermos.setAttribute('aria-hidden', 'false');
+            };
+
+            const fecharModal = () => {
+                modalTermos.classList.remove('show');
+                modalTermos.setAttribute('aria-hidden', 'true');
+            };
+
+            linkTermos.addEventListener('click', abrirModal);
+            modalClose.addEventListener('click', fecharModal);
+
+            modalTermos.addEventListener('click', (event) => {
+                if (event.target === modalTermos) {
+                    fecharModal();
+                }
+            });
+
+            document.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape' && modalTermos.classList.contains('show')) {
+                    fecharModal();
+                }
+            });
+        }
+    </script>
 </body>
 </html>

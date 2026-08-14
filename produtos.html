@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Produtos - Fleur d'Art</title>
+     <link rel="icon" href="icon.png" type="image/png">
+    <title> Produtos | Fleur d'Art </title>   
     <link rel="stylesheet" href="style.css">
  
 </head>
@@ -11,9 +12,10 @@
     <header>
         <div class="topo">
 
-            <!-- NOME DA LOJA -->
-            <h1 class="logo">Fleur d'Art</h1>
-        
+          <h1 class="logo">
+                <img src="icone.png" alt="Emblema Fleur d'Art">
+                Fleur d'Art
+            </h1>
             <!-- ELEMENTOS DO LADO DIREITO -->
             <div class="header-actions">
         
@@ -134,7 +136,18 @@
                             <div class="preco">R$ 129,90</div>
                             <button class="btn-adicionar" onclick="adicionarAoCarrinho('Calça Jeans', 129.90)">Adicionar ao Carrinho</button>
                         </div>
+
                     </article>
+                        <article class="card-produto" data-categoria="vestidos" data-destaque="true">
+                    <img src="vestido-alice.webp" alt="vestido alice">
+                    <div class="card-body">
+                        <span class="tag-categoria"> Peças em destaque </span>
+                        <h3>Vestido Alice </h3>
+                        <div class="preco">R$ 89,90</div>
+                        <button class="btn-adicionar" onclick="adicionarAoCarrinho('Vestido Alice', 89.90)">Adicionar ao Carrinho</button>
+                    </div>
+                </article>
+
                 </section>
 
                 <aside id="carrinhoFlutuante" class="carrinho-box carrinho-flutuante">

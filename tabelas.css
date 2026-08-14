@@ -1,7 +1,7 @@
-/* =========================================
-   PÁGINA DE TROCAS E DEVOLUÇÕES
-   Fleur d'Art
-   ========================================= */
+    /* =========================================
+    PÁGINA DE TROCAS E DEVOLUÇÕES
+    Fleur d'Art
+    ========================================= */
 
 
 /* --- CONTEÚDO PRINCIPAL --- */
@@ -9,6 +9,17 @@
 main {
     width: 100%;
     padding: 40px 5%;
+}
+
+
+
+.topo .logo {
+  color: #ffffff;
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  font-weight: 600;
+  margin: 0;
+  white-space: nowrap;
 }
 
 
@@ -37,7 +48,8 @@ main > h1 {
     max-width: 1100px;
     margin: 0 auto;
 
-    background-color: rgb(253, 244, 235);
+    /*background-color: rgb(253, 244, 235);*/
+    background-color: #ffffff;
 
     padding: 40px 50px;
 
@@ -179,7 +191,8 @@ main > h1 {
 
     padding: 20px 25px;
 
-    background-color: #faf0f0;
+   /* background-color: #faf0f0;*/
+   background-color: white;
 
     border-left: 4px solid rgb(143, 2, 5);
 
@@ -202,7 +215,7 @@ main > h1 {
 
 /* --- IMAGEM --- */
 
-img {
+.user-content.pb-5 img {
     width: 55%;
     justify-content: center;
     height: auto;
