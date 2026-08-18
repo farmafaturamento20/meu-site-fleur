@@ -19,13 +19,15 @@ document.addEventListener('DOMContentLoaded', function () {
     const aberto = carrinhoFlutuante.classList.contains('aberto');
     carrinhoFlutuante.classList.toggle('aberto', !aberto);
   }
+  // "toggle" usado quando precisa mudar alguma coisa de um estado pra outro, ex.: clicar - menu aparece, clicar - menu desaparece //
 
-  function formatarReal(valor) {
-    return new Intl.NumberFormat('pt-BR', {
+  function formatarReal(valor) { 
+    return new Intl.NumberFormat('pt-BR', { 
       style: 'currency',
       currency: 'BRL'
     }).format(valor);
   }
+  // "Intel.NumberFormat" usada pra formatar numeros de acordo com um pais/idioma (precos, valores monetarios, porcentagens, numeros grandes) //
 
   function atualizarFiltro() {
     cards.forEach((card) => {
@@ -37,6 +39,8 @@ document.addEventListener('DOMContentLoaded', function () {
       card.style.display = visible ? 'flex' : 'none';
     });
   }
+  // "to.LowerCase" pra fazer as letras ficaram minusculas //
+  // "card.style.display = visible" pra definir qual propriedade do css ta sendo usada //
 
   filtroButtons.forEach((botao) => {
     botao.addEventListener('click', function () {
@@ -81,6 +85,7 @@ document.addEventListener('DOMContentLoaded', function () {
         `;
         listaCarrinho.appendChild(li);
       });
+      // "appendChild" serve pra colocar um elemento dentro do outro no HTML //
 
       const total = carrinho.reduce((soma, item) => soma + item.preco, 0);
       totalCarrinho.textContent = formatarReal(total);
@@ -98,11 +103,13 @@ document.addEventListener('DOMContentLoaded', function () {
     if (badgeCarrinho) {
       badgeCarrinho.textContent = String(carrinho.length);
     }
+    // "badgeCarrinho.textContent" contador do carrinho //
 
     if (carrinho.length > 0 && carrinhoFlutuante && !carrinhoFlutuante.classList.contains('aberto')) {
       carrinhoFlutuante.classList.add('aberto');
     }
   }
+  // se o carrinho tiver aberto e com produtos, abre o carrinho flutuante (aparece na tela) //
 
   if (btnCarrinhoFlutuante) {
     btnCarrinhoFlutuante.addEventListener('click', alternarCarrinho);
@@ -118,6 +125,7 @@ document.addEventListener('DOMContentLoaded', function () {
     carrinho.push({ nome, preco });
     renderCarrinho();
   };
+  // "window" serve pro JavaScript acessar o ambiente de um site em algum navegador //
 
   window.enviarWhatsApp = function () {
     if (carrinho.length === 0) {
@@ -130,6 +138,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const texto = encodeURIComponent(`Olá! Gostaria de comprar: ${mensagem}. Total: ${formatarReal(total)}`);
     window.open(`https://wa.me/5511999999999?text=${texto}`, '_blank');
   };
+  // "encodeURIComponent" codifica um texto pra ser colocado com seguranca dentro de um URL //
 
   renderCarrinho();
   atualizarFiltro();
@@ -142,6 +151,9 @@ document.addEventListener('DOMContentLoaded', function () {
             const prevButton = document.getElementById('btnAnterior');
             let activeIndex = 0;
             let autoAdvanceTimer = null;
+            // "DOMContentLoaded" significa que o HTML, depois de carregar, pode ser manipulado pelo JavaScript //
+            // "activeIndex" pra indicar qual item ta ativo dentro de uma lista de itens //
+            // "autoAdvanceTimer" (mesma logica do primeiro), ex.: controla o tempo pra trocar de imagem em um carrossel //
 
             function stopAutoAdvance() {
                 if (autoAdvanceTimer) {
@@ -149,12 +161,17 @@ document.addEventListener('DOMContentLoaded', function () {
                     autoAdvanceTimer = null;
                 }
             }
+            // "clearInterval" usado pra parar um intervalo criado com setInterval() //
+            // "stopAutoAdvance" interrompe o avanco automatico (carrossel) //
 
             function restartAutoAdvance() {
                 stopAutoAdvance();
+            // "restartAutoAdvance" reinicia o avanco automatico //
 
                 const activeSlide = slides[activeIndex];
                 const activeVideo = activeSlide?.querySelector('video');
+                // "activeSlide" slide visivel //
+                // "activeVideo" video visivel //
 
                 if (activeVideo) {
                     activeVideo.currentTime = 0;
@@ -165,6 +182,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     };
                     return;
                 }
+                // "onended" quando termina o video //
 
                 autoAdvanceTimer = setInterval(function () {
                     showSlide(activeIndex + 1);
@@ -207,11 +225,14 @@ document.addEventListener('DOMContentLoaded', function () {
                     showSlide(Number(dot.dataset.index));
                 });
             });
+            // "dots" pontos de navegacao que ficam embaixo de um banner, slides, videos e galerias //
 
             showSlide(0);
         });
         const dropdown = document.querySelector('.utilities-dropdown');
         const trigger = document.querySelector('.utility-head');
+        // "dropdown" menu suspenso ou lista suspensa (menu/lista que abre e mostra opcoes) //
+        // "trigger" dispara a funcao de um botao //
 
         if (dropdown && trigger) {
             const toggleMenu = (forceOpen) => {
@@ -219,11 +240,14 @@ document.addEventListener('DOMContentLoaded', function () {
                 dropdown.classList.toggle('open', shouldOpen);
                 trigger.setAttribute('aria-expanded', String(shouldOpen));
             };
+            // "shouldOpen" 'deve abrir' //
+            // "forceOpen" forcar abertura //
 
             trigger.addEventListener('click', (event) => {
                 event.stopPropagation();
                 toggleMenu();
             });
+            // "stopPropagation" impede que um evento continue se propagando pelos elementos da pagina //
 
             trigger.addEventListener('keydown', (event) => {
                 if (event.key === 'Enter' || event.key === ' ') {
@@ -255,6 +279,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const linkTermos = document.querySelector('.link-termos');
         const modalTermos = document.getElementById('modalTermos');
         const modalClose = document.querySelector('.modal-close');
+        // "modalClose" fechamento do modal ou elemento/acao responsavel por fechar o modal //
 
         if (linkTermos && modalTermos && modalClose) {
             const abrirModal = (event) => {
